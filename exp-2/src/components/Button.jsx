@@ -1,29 +1,80 @@
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Rating from "@mui/material/Rating";
+import Slider from "@mui/material/Slider";
+import ToggleButton from "@mui/material/ToggleButton";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
 
 export default function ButtonBasic() {
+  const [degree, setDegree] = React.useState("");
+  const [above18, setAbove18] = React.useState(false);
+
+  const handleDegreeChange = (event) => {
+    setDegree(event.target.value);
+  };
+
+  const handleCheckboxChange = (event) => {
+    setAbove18(event.target.checked);
+  };
+
   return (
     <>
-    <Button size="small" variant='outlined'>Small</Button>
-    <Button size="medium" variant='outlined'>Medium</Button>
-    <Button size="large" variant='outlined'>Large</Button>
-    <br/>
-    <br/>
-    <Button size='small' variant='contained'>Small</Button>
-    <Button size="medium" variant='contained'>Medium</Button>
-    <Button size="large" variant='contained'>Large</Button>
-    <br/>
-    <br/>
-    <Button size='small' variant='text'>Small</Button>
-    <Button size="medium" variant='text'>Medium</Button>
-    <Button size="large" variant='text'>Large</Button>
-    <br/>
-    <br/>
-    <TextField label="Small" size="small" variant="outlined" />
-    <TextField label="Medium" size="medium" variant="outlined" />
-    
-    
-    </>
-  ) 
+      <Button size="small" variant="outlined">Small</Button>
+      <br />
 
+      <Button size="medium" variant="contained">Medium</Button>
+      <br />
+
+      <Button size="large" variant="text">Large</Button>
+      <br />
+
+      <TextField label="Small" size="small" variant="outlined" />
+      <br />
+
+      <Rating name="size-medium" defaultValue={2} size="medium" />
+      <br />
+
+      <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
+      <br />
+
+      <ToggleButton value="web">Web</ToggleButton>
+      <br />
+
+      <FormControl fullWidth>
+        <InputLabel id="degree-select-label">Degree</InputLabel>
+        <Select
+          labelId="degree-select-label"
+          id="degree-select"
+          value={degree}
+          label="Degree"
+          onChange={handleDegreeChange}
+        >
+          <MenuItem value="CSE">CSE</MenuItem>
+          <MenuItem value="Mechanical">Mechanical</MenuItem>
+          <MenuItem value="Civil">Civil</MenuItem>
+          <MenuItem value="Electrical">Electrical</MenuItem>
+        </Select>
+      </FormControl>
+
+      <br />
+
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={above18}
+            onChange={handleCheckboxChange}
+          />
+        }
+        label="Above 18 years"
+      />
+    </>
+  );
 }
