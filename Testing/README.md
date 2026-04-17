@@ -2,10 +2,10 @@
 
 ## Backend
 
-* Flask API tested using pytest
-* CRUD operations tested
+* Flask APIs are tested using pytest
+* All CRUD operations are covered
 
-Run:
+Run backend:
 cd Testing/Backend
 pytest
 
@@ -13,9 +13,9 @@ pytest
 
 ## Frontend
 
-* React app tested using vitest
+* React application tested using vitest
 
-Run:
+Run frontend:
 cd Testing/Frontend
 npm install
 npm run test
@@ -24,11 +24,11 @@ npm run test
 
 ## GitHub Actions
 
-* Tests run automatically on push
-* Backend and frontend both tested
+* Automated testing is configured
+* Tests run on every push
 
 ---
 
 ## Result
 
-All tests passed successfully.
+All backend and frontend tests executed successfully.
